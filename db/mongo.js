@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const dbInit = {
-    useNewUrlParser : true,
     dbName : "port-plaisance-russell"
 }
 
+//Verification si la connexion se fait avec la BDD Mongo
 exports.connexionDB = async () => {
     try {
         await mongoose.connect(process.env.URL_MONGO,  dbInit);
