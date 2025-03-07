@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const userRoute = require("../routes/users")
+const userRoute = require("../routes/users");
+const catawayRoute = require("../routes/castaways");
+const reservationRoute = require("../routes/reservations");
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -9,5 +11,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.use("/users", userRoute);
+router.use("/castaways", catawayRoute);
+router.use("/reservations", reservationRoute);
 
 module.exports = router;

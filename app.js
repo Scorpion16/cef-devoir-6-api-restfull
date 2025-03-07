@@ -5,8 +5,8 @@ const logger = require("morgan");
 const cors = require("cors");
 
 const indexRouter = require("./routes/index");
-//const usersRouter = require("./routes/users");
-const mongoose = require("./db/mongo")
+
+const mongoose = require("./db/mongo");
 
 mongoose.connexionDB();
 
@@ -16,7 +16,7 @@ const app = express();
 app.use(cors({
     exposedHeaders: ["Authorization"],
     origin: "*"
-}))
+}));
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -25,10 +25,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-//app.use("/users", usersRouter);
+
 
 app.use(function(req, res, next){
-    res.status(404).json({name: "API", version: "1.0", status: 404, message: "not found"})
+    res.status(404).json({name: "API", version: "1.0", status: 404, message: "not found"});
+    console.log("Tu est ici !");
 });
 
 module.exports = app;

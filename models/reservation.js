@@ -2,17 +2,27 @@ const mongoose = require("mongoose");
 
 //Création du schéma réservation
 const reservationSchema = new mongoose.Schema({
-    username : {
+    catwayNumber : {
+        type : Number,
+        trim: true,
+        required: [true, "Le numéro de cataway est requis"]
+    },
+    clientName : {
         type : String,
         trim: true,
-        required: [true, "Le pseudo est requis"]
+        required: [true, "Le nom et prénom est requis"]
     },
-    email : {
+    boatName : {
         type: String,
-        trim: true,
-        required: [true, "L'e-mail est requis"],
-        unique: true,
-        lowercase: true
+        trim: true
+    },
+    startDate : {
+        type : String,
+        trim: true
+    },
+    endDate : {
+        type : String,
+        trim: true
     }
     
 }, {

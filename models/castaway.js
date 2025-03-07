@@ -4,29 +4,17 @@ const mongoose = require("mongoose");
 const castawaySchema = new mongoose.Schema({
     catwayNumber : {
         type : Number,
+        trim: true,
+        required: [true, "Le numéro de cataway est requis"]
+    },
+    catwayType : {
+        type : String,
         trim: true
     },
-    clientName : {
-        type : String,
-        trim: true,
-        required: [true, "Le nom et prénom est requis"]
-    },
-    boatName : {
+    catwayState : {
         type: String,
-        trim: true,
-        required: [true, "Le nom du bateau est requis"]
-    },
-    startDate : {
-        type : Number,
-        trim: true,
-        required: [true, "La date de début est requis"]
-    },
-    endDate : {
-        type : Number,
-        trim: true,
-        required: [true, "La date de fin est requis"]
+        trim: true
     }
-    
 }, {
     timestamps: true
 });
